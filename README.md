@@ -42,8 +42,4 @@ This project demonstrates user authentication and role-based access control usin
 
 ---
 
-## 🚀 Setup
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/yourusername/yourproject.git
