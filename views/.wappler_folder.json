@@ -1,0 +1,22 @@
+{
+  "regis_page.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "login_page.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "adminpage.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "userpage.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "dashboard.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  }
+}

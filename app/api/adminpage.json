@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ],
+    "$_SESSION": [
+      {
+        "type": "number",
+        "fieldName": "role_id",
+        "name": "role_id"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "",
+        "module": "auth",
+        "action": "restrict",
+        "options": {
+          "provider": "security1",
+          "permissions": [
+            "admin"
+          ],
+          "loginUrl": "/adminpage",
+          "forbiddenUrl": "/login_page"
+        }
+      },
+      {
+        "name": "query",
+        "module": "dbconnector",
+        "action": "select",
+        "options": {
+          "connection": "travel_db",
+          "sql": {
+            "type": "select",
+            "columns": [
+              {
+                "table": "users",
+                "column": "username"
+              }
+            ],
+            "params": [
+              {
+                "operator": "equal",
+                "type": "expression",
+                "name": ":P1",
+                "value": "{{$_SESSION.role_id}}",
+                "test": ""
+              }
+            ],
+            "table": {
+              "name": "users"
+            },
+            "primary": "id",
+            "joins": [],
+            "wheres": {
+              "condition": "AND",
+              "rules": [
+                {
+                  "id": "users.role_id",
+                  "field": "users.role_id",
+                  "type": "double",
+                  "operator": "equal",
+                  "value": "{{$_SESSION.role_id}}",
+                  "data": {
+                    "table": "users",
+                    "column": "role_id",
+                    "type": "number",
+                    "columnObj": {
+                      "type": "reference",
+                      "default": "",
+                      "primary": false,
+                      "nullable": true,
+                      "references": "id",
+                      "inTable": "users",
+                      "referenceType": "integer",
+                      "onUpdate": "RESTRICT",
+                      "onDelete": "RESTRICT",
+                      "name": "role_id"
+                    }
+                  },
+                  "operation": "="
+                }
+              ],
+              "conditional": null,
+              "valid": true
+            },
+            "query": "select `username` from `users` where `users`.`role_id` = ?"
+          }
+        },
+        "output": true,
+        "meta": [
+          {
+            "type": "text",
+            "name": "username"
+          }
+        ],
+        "outputType": "array"
+      }
+    ]
+  }
+}

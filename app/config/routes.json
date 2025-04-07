@@ -1,0 +1,37 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "page": "index",
+      "routeType": "page",
+      "layout": "main"
+    },
+    {
+      "path": "/regis_page",
+      "page": "regis_page",
+      "layout": "main"
+    },
+    {
+      "path": "/login_page",
+      "page": "login_page",
+      "layout": "main"
+    },
+    {
+      "path": "/adminpage",
+      "page": "adminpage",
+      "layout": "main",
+      "exec": "/api/adminpage"
+    },
+    {
+      "path": "/userpage",
+      "page": "userpage",
+      "layout": "main"
+    },
+    {
+      "path": "/dashboard",
+      "page": "dashboard",
+      "layout": "main",
+      "exec": "/api/userpage"
+    }
+  ]
+}

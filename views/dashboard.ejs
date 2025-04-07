@@ -1,0 +1,6 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="dashboard" appConnect="local" components="{dmxBrowser:{}}" -->
+<dmx-serverconnect id="serverconnect2" noload="true" url="/api/logout"></dmx-serverconnect>
+<div is="dmx-browser" id="browser1"></div>
+<button id="btn1" class="btn" dmx-on:click="serverconnect2.load({});browser1.goto('/login_page')">Logout</button>
+<dmx-serverconnect id="serverconnect1" url="/api/userpage"></dmx-serverconnect>
+<meta name="ac:route" content="/dashboard">

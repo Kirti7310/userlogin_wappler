@@ -1,0 +1,33 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="login_page" appConnect="local" components="{dmxNotifications:{},dmxBrowser:{}}" -->
+<div is="dmx-browser" id="browser1"></div>
+<dmx-notifications id="notifies1"></dmx-notifications>
+<meta name="ac:route" content="/login_page">
+<div class="container">
+    <form id="login1" method="post" is="dmx-serverconnect-form" action="/api/login_api" dmx-on:success="notifies1.success(login1.data.query[0].role_id+'success!');browser1.goto(login1.data.query[0].role_id==1?'/adminpage':'/dashboard');login1.reset(true)" credentials="true">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-start">
+                <div class="row">
+                    <div class="col">
+                        <h1>Log In</h1>
+                        <p class="text-h3">Enter your details below.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <button id="login1_submit" class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

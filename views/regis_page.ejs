@@ -1,0 +1,40 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="regis_page" appConnect="local" components="{dmxNotifications:{},dmxBrowser:{}}" -->
+<div is="dmx-browser" id="browser1"></div>
+<dmx-notifications id="notifies1"></dmx-notifications>
+<meta name="ac:route" content="/regis_page">
+<div class="container">
+    <form id="register1" is="dmx-serverconnect-form" method="post" action="/api/regis_api" dmx-on:success="notifies1.success('Registeration success!')">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-7 col-md-5 text-center">
+                <div class="fdb-box fdb-touch">
+                    <div class="row">
+                        <div class="col">
+                            <h1>Register</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-4">
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="password" id="password" name="password" class="form-control mb-1" placeholder="Password">
+                            <p class="text-end"><a href="/login_page">Already have an account?</a></p>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button id="register1_submit" class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

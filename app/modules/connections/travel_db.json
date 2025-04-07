@@ -1,0 +1,15 @@
+{
+  "name": "travel_db",
+  "module": "dbconnector",
+  "action": "connect",
+  "options": {
+    "client": "mysql2",
+    "connection": {
+      "host": "localhost",
+      "user": "root",
+      "database": "travel_list"
+    },
+    "tz": "utc"
+  },
+  "fileName": "travel_db.json"
+}

@@ -1,0 +1,47 @@
+{
+  "name": "security1",
+  "module": "auth",
+  "action": "provider",
+  "options": {
+    "secret": "oBm3CnDFjk6upiz",
+    "provider": "Database",
+    "connection": "travel_db",
+    "passwordVerify": true,
+    "users": {
+      "table": "users",
+      "identity": "id",
+      "username": "email",
+      "password": "password"
+    },
+    "permissions": {
+      "admin": {
+        "table": "users",
+        "identity": "id",
+        "conditions": [
+          {
+            "column": "role_id",
+            "operator": "=",
+            "value": "1"
+          }
+        ]
+      },
+      "user": {
+        "table": "users",
+        "identity": "id",
+        "conditions": [
+          {
+            "column": "role_id",
+            "operator": "=",
+            "value": "2"
+          }
+        ]
+      }
+    }
+  },
+  "meta": [
+    {
+      "name": "identity",
+      "type": "text"
+    }
+  ]
+}
